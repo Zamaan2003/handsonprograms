@@ -1,0 +1,45 @@
+public virtual void Test()
+{
+    int count = 0;
+    int count1 = 0;
+    int[] arr = new int[5];
+    for(int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    foreach(int x in arr)
+    {
+        if (x % 2 == 1)
+        {
+            count++;
+        }
+        else
+        {
+            count1++;
+        }
+
+    }
+    int[] oddarr = new int[count];
+    int c1 = 0;int c2 = 0;
+    int[] evenarr = new int[count1];
+    for(int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] % 2 == 1)
+        {
+            oddarr[c1] = arr[i];
+            c1++;
+        }
+        else
+        {
+            evenarr[c2] = arr[i];
+            c2++;
+        }
+    }
+    foreach(int s in oddarr)
+    {
+        Console.WriteLine(s);
+    }
+    foreach(int s in evenarr)
+        { Console.WriteLine(s); }
+
+}
