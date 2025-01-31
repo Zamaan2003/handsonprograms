@@ -1,0 +1,75 @@
+using System;
+
+abstract class Vehicle
+{
+    public string Make{get;set;}
+    public string Model{get;set;}
+    public int Year{get;set;}
+    
+    public Vehicle(string make,string model,int year){
+        Make = make;
+        Model = model;
+        Year = year;
+    }
+
+  
+    public abstract void GetInfo();
+}
+
+class Car : Vehicle
+{
+    
+    public Car(string make,string model,int year) : base(make,model,year){ }
+    public override void GetInfo(){
+            Console.WriteLine("Car: "+Year+" "+Make+" "+Model);
+    }
+}
+
+class Motorcycle : Vehicle
+{
+    
+    public Motorcycle(string make,string model,int year):base(make,model,year){ }
+    public override void GetInfo(){
+            Console.WriteLine("Motorcycle: "+Year+" "+Make+" "+Model);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        Console.WriteLine("Enter car make:");
+
+        string carmake = Console.ReadLine();
+
+        Console.WriteLine("Enter car model:");
+       
+        string carmodel = Console.ReadLine();
+
+        Console.WriteLine("Enter car year:");
+     
+        int caryear = int.Parse(Console.ReadLine());
+
+        
+        Console.WriteLine("Enter motorcycle make:");
+       
+        string motormake = Console.ReadLine();
+
+        Console.WriteLine("Enter motorcycle model:");
+       
+        string motormodel = Console.ReadLine();
+
+
+        Console.WriteLine("Enter motorcycle year:");
+     
+        int motoryear = int.Parse(Console.ReadLine());
+
+        Car obj1 = new Car(carmake,carmodel,caryear);
+        Motorcycle obj2 = new Motorcycle(motormake,motormodel,motoryear);
+
+      
+        obj1.GetInfo();
+        obj2.GetInfo();
+    }
+}
