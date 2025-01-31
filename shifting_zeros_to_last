@@ -1,0 +1,48 @@
+public virtual void Test1()
+{
+    int[] arr = new int[Convert.ToInt32(Console.ReadLine())];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = Convert.ToInt32(Console.ReadLine());
+    }
+
+    int c1 = 0;
+    int c2 = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] == 0)
+        {
+            c1++;
+        }
+        else
+        {
+            c2++;
+        }
+    }
+    int[] larr = new int[c2];
+    int[] rarr = new int[c1];
+    int c3 = 0;
+    int c4 = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] == 0)
+        {
+            rarr[c3] = arr[i];
+            c3++;
+            
+        }
+        else
+        {
+            larr[c4] = arr[i];
+            c4++;
+        }
+    }
+    for(int i = 0; i < larr.Length; i++)
+    {
+        Console.WriteLine(larr[i]);
+    }
+    for(int i = 0; i < rarr.Length; i++)
+    {
+        Console.WriteLine(rarr[i]);
+    }
+}
