@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void FindDuplicateCharacters(string input)
+    {
+        Dictionary<char, int> charCount = new Dictionary<char, int>();
+        foreach (char ch in input)
+        {
+            if (charCount.ContainsKey(ch))
+            {
+                charCount[ch]++;
+            }
+            else
+            {
+                charCount[ch] = 1;
+            }
+        }
+        Console.Write("Duplicate characters: ");
+        foreach (var item in charCount)
+        {
+            if (item.Value > 1)
+            {
+                Console.Write(item.Key + " ");
+            }
+        }
+        Console.WriteLine();
+    }
+
+    static void Main(string[] args)
+    {
+        // Test case 1
+        string input1 = "google";
+        Console.WriteLine("Input: " + input1);
+        FindDuplicateCharacters(input1); // Output: Duplicate characters: o g
+
+        // Test case 2
+        string input2 = "programming";
+        Console.WriteLine("Input: " + input2);
+        FindDuplicateCharacters(input2); // Output: Duplicate characters: r g m
+
+        // Test case 3
+        string input3 = "hello";
+        Console.WriteLine("Input: " + input3);
+        FindDuplicateCharacters(input3); // Output: Duplicate characters: l
+    }
+}
