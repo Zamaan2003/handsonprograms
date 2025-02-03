@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static string GetUniqueCharacters(string input)
+    {
+        HashSet<char> seenChars = new HashSet<char>();
+        string result = "";
+        foreach (char ch in input)
+        {
+            if (!seenChars.Contains(ch))
+            {
+                seenChars.Add(ch);
+                result += ch;
+            }
+        }
+
+        return result;
+    }
+
+    static void Main(string[] args)
+    {
+        // Test case 1
+        string input1 = "google";
+        Console.WriteLine("Unique characters: " + GetUniqueCharacters(input1)); // Output: gole
+
+        // Test case 2
+        string input2 = "programming";
+        Console.WriteLine("Unique characters: " + GetUniqueCharacters(input2)); // Output: progamin
+
+        // Test case 3
+        string input3 = "hello";
+        Console.WriteLine("Unique characters: " + GetUniqueCharacters(input3)); // Output: helo
+    }
+}
