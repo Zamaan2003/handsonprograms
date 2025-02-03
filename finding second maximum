@@ -1,0 +1,31 @@
+using System;
+using System.Linq;
+
+class Program
+{
+    static int FindSecondLargest(int[] arr)
+    {
+        int[] distinctArr = arr.Distinct().ToArray();
+        if (distinctArr.Length < 2)
+        {
+            return -1;
+        }
+        Array.Sort(distinctArr);
+        return distinctArr[distinctArr.Length - 2];
+    }
+
+    static void Main(string[] args)
+    {
+        // Test case 1
+        int[] arr1 = { 12, 35, 1, 10, 34, 1 };
+        Console.WriteLine("Second largest element: " + FindSecondLargest(arr1)); // Output: 34
+
+        // Test case 2
+        int[] arr2 = { 10, 5, 10 };
+        Console.WriteLine("Second largest element: " + FindSecondLargest(arr2)); // Output: 5
+
+        // Test case 3
+        int[] arr3 = { 10, 10, 10 };
+        Console.WriteLine("Second largest element: " + FindSecondLargest(arr3)); // Output: -1
+    }
+}
