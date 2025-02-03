@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static string ReverseEachWord(string sentence)
+    {
+        string[] words = sentence.Split(' ');
+        string[] reversedWords = new string[words.Length];
+        for (int i = 0; i < words.Length; i++)
+        {
+            char[] charArray = words[i].ToCharArray();
+            Array.Reverse(charArray);
+            reversedWords[i] = new string(charArray);
+        }
+        return string.Join(" ", reversedWords);
+    }
+
+    static void Main(string[] args)
+    {
+        // Test case
+        string sentence = "My name is vasu";
+        Console.WriteLine("Original Sentence: " + sentence);
+        string result = ReverseEachWord(sentence);
+        Console.WriteLine("Reversed Words: " + result);  // Output: yM eman si usav
+    }
+}
