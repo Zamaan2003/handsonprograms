@@ -1,0 +1,60 @@
+using System;
+
+class Program
+{
+    static int MaxConsecutiveOnes(int[] arr)
+    {
+        int maxCount = 0; // Stores the maximum consecutive 1's
+        int currentCount = 0; // Stores the current consecutive 1's
+
+        foreach (int num in arr)
+        {
+            if (num == 1)
+            {
+                currentCount++;
+                if (currentCount > maxCount)
+                    maxCount = currentCount;
+            }
+            else
+            {
+                currentCount = 0;
+            }
+        }
+
+        return maxCount;
+    }
+
+    static int MaxConsecutiveZeros(int[] arr)
+    {
+        int maxCount = 0; // Stores the maximum consecutive 0's
+        int currentCount = 0; // Stores the current consecutive 0's
+
+
+        foreach (int num in arr)
+        {
+            if (num == 0)
+            {
+                currentCount++;
+                if (currentCount > maxCount)
+                    maxCount = currentCount;
+            }
+            else
+            {
+                currentCount = 0;
+            }
+        }
+
+        return maxCount;
+    }
+
+    static void Main(string[] args)
+    {
+        // Test case 1 for maximum consecutive 1's
+        int[] arr1 = { 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1 };
+        Console.WriteLine("Maximum consecutive 1's: " + MaxConsecutiveOnes(arr1)); // Output: 4
+
+        // Test case 2 for maximum consecutive 0's
+        int[] arr2 = { 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 };
+        Console.WriteLine("Maximum consecutive 0's: " + MaxConsecutiveZeros(arr2)); // Output: 2
+    }
+}
